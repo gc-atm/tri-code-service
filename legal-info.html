@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法制信息 - 三码服务平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 视频弹窗样式 */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .video-content {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        legal: '#165DFF',
+                        integrity: '#36D399',
+                        service: '#FF7D00'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-legal">
+                <i class="fa fa-arrow-left text-xl"></i>
+                <span class="font-bold">返回首页</span>
+            </a>
+            <h1 class="text-xl font-bold text-legal">法制信息查询</h1>
+            <div class="w-8"></div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-xl p-6 shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-legal/10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fa fa-file-text-o text-legal"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">许可证信息</h2>
+                </div>
+                <!-- 替换为真实许可证图片 -->
+                <div class="mb-4 bg-gray-50 p-2 rounded-lg">
+                    <img src="https://picsum.photos/id/180/600/400" alt="烟草专卖零售许可证" class="rounded-lg w-full">
+                </div>
+                <p class="text-gray-600 mb-4">统一社会信用代码：91330624MA2JRMXXXT</p>
+                <p class="text-gray-600 mb-4">许可证编号：33062410XXXX</p>
+                <p class="text-gray-600">有效期限：2024年1月1日 - 2029年12月31日</p>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="许可证原件.pdf" download class="text-legal hover:underline flex items-center">
+                        下载完整许可证 <i class="fa fa-download ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-legal/10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fa fa-child text-legal"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">未成年人保护规定</h2>
+                </div>
+                <!-- 替换为真实规定文档图片 -->
+                <div class="mb-4 bg-gray-50 p-2 rounded-lg">
+                    <img src="https://picsum.photos/id/20/600/400" alt="未成年人保护规定" class="rounded-lg w-full">
+                </div>
+                <ul class="text-gray-600 space-y-2 mb-4">
+                    <li>• 严格遵守《未成年人保护法》相关要求</li>
+                    <li>• 禁止向未成年人出售烟草制品</li>
+                    <li>• 经营场所需张贴“禁止向未成年人售烟”标识</li>
+                    <li>• 未按规定执行将面临行政处罚</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="未成年人保护规定.docx" download class="text-legal hover:underline flex items-center">
+                        下载详细条款 <i class="fa fa-download ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-legal/10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fa fa-laptop text-legal"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">电子业务指南</h2>
+                </div>
+                <!-- 替换为真实操作流程图 -->
+                <div class="mb-4 bg-gray-50 p-2 rounded-lg">
+                    <img src="https://picsum.photos/id/42/600/400" alt="电子业务操作流程" class="rounded-lg w-full">
+                </div>
+                <ol class="text-gray-600 space-y-2 mb-4 list-decimal list-inside">
+                    <li>登录浙里办APP，搜索“烟草证新办/延续”</li>
+                    <li>上传相关证明材料（支持JPG/PNG/PDF格式）</li>
+                    <li>填写申请信息，提交审核</li>
+                    <li>审核通过后，在线获取电子凭证</li>
+                </ol>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="电子业务操作手册.pdf" download class="text-legal hover:underline flex items-center">
+                        下载操作手册 <i class="fa fa-download ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-legal/10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fa fa-book text-legal"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">典型案例库</h2>
+                </div>
+                <!-- 替换为真实案例封面图 -->
+                <div class="mb-4 bg-gray-50 p-2 rounded-lg">
+                    <img src="https://picsum.photos/id/24/600/400" alt="典型案例库" class="rounded-lg w-full">
+                </div>
+                <div class="space-y-3 mb-4">
+                    <a href="案例1.pdf" download class="block text-gray-600 hover:text-legal">案例1：向未成年人售烟行政处罚案例</a>
+                    <a href="案例2.pdf" download class="block text-gray-600 hover:text-legal">案例2：烟草证转让违规处罚案例</a>
+                    <a href="案例3.pdf" download class="block text-gray-600 hover:text-legal">案例3：无证经营烟草制品处罚案例</a>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <a href="案例库全册.pdf" download class="text-legal hover:underline flex items-center">
+                        下载全部案例 <i class="fa fa-download ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow card-hover md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-legal/10 rounded-full flex items-center justify-center mr-3">
+                        <i class="fa fa-play-circle text-legal"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">普法科普视频</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <!-- 视频1 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-legal/50 transition-colors">
+                        <div class="bg-gray-100 rounded-lg mb-2 aspect-video flex items-center justify-center">
+                            <img src="https://picsum.photos/id/96/300/200" alt="视频封面1"
+                                class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center mb-2 text-sm">警惕！以烟草证延续为由的诈骗套路</h3>
+                        <div class="mt-1 flex justify-center">
+                            <button class="bg-legal/10 text-legal px-3 py-1 rounded text-sm video-btn"
+                                data-video="1.mp4">
+                                <i class="fa fa-play mr-1"></i> 播放
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 视频2 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-legal/50 transition-colors">
+                        <div class="bg-gray-100 rounded-lg mb-2 aspect-video flex items-center justify-center">
+                            <img src="https://picsum.photos/id/99/300/200" alt="视频封面2"
+                                class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center mb-2 text-sm">店铺能转让，烟草证可不行！</h3>
+                        <div class="mt-1 flex justify-center">
+                            <button class="bg-legal/10 text-legal px-3 py-1 rounded text-sm video-btn"
+                                data-video="2.mp4">
+                                <i class="fa fa-play mr-1"></i> 播放
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 视频3 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-legal/50 transition-colors">
+                        <div class="bg-gray-100 rounded-lg mb-2 aspect-video flex items-center justify-center">
+                            <img src="https://picsum.photos/id/98/300/200" alt="视频封面3"
+                                class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center mb-2 text-sm">注意！别挂烟草证复印件！</h3>
+                        <div class="mt-1 flex justify-center">
+                            <button class="bg-legal/10 text-legal px-3 py-1 rounded text-sm video-btn"
+                                data-video="3.mp4">
+                                <i class="fa fa-play mr-1"></i> 播放
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 视频4 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-legal/50 transition-colors">
+                        <div class="bg-gray-100 rounded-lg mb-2 aspect-video flex items-center justify-center">
+                            <img src="https://picsum.photos/id/99/300/200" alt="视频封面4"
+                                class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center mb-2 text-sm">老板必看：亮证经营是基本要求！</h3>
+                        <div class="mt-1 flex justify-center">
+                            <button class="bg-legal/10 text-legal px-3 py-1 rounded text-sm video-btn"
+                                data-video="4.mp4">
+                                <i class="fa fa-play mr-1"></i> 播放
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 视频5 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-legal/50 transition-colors">
+                        <div class="bg-gray-100 rounded-lg mb-2 aspect-video flex items-center justify-center">
+                            <img src="https://picsum.photos/id/100/300/200" alt="视频封面5"
+                                class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center mb-2 text-sm">无人超市不能卖烟草！</h3>
+                        <div class="mt-1 flex justify-center">
+                            <button class="bg-legal/10 text-legal px-3 py-1 rounded text-sm video-btn"
+                                data-video="5.mp4">
+                                <i class="fa fa-play mr-1"></i> 播放
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 视频播放弹窗 -->
+        <div class="video-modal" id="videoModal">
+            <div class="video-content">
+                <span class="close-modal">&times;</span>
+                <video id="modalVideo" width="100%" controls class="mt-2">
+                    <source src="" type="video/mp4">
+                    您的浏览器不支持HTML5视频播放
+                </video>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white mt-8 py-4 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <p>© 2024 三码服务平台 版权所有 | 咨询电话：0575-86032995 | 12313烟草市场监管热线</p>
+        </div>
+    </footer>
+
+    <script>
+        // 视频弹窗逻辑
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const videoBtns = document.querySelectorAll('.video-btn');
+            const closeBtn = document.querySelector('.close-modal');
+
+            // 播放视频
+            videoBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const videoSrc = this.getAttribute('data-video');
+                    modalVideo.src = videoSrc;
+                    modal.style.display = 'flex';
+                    modalVideo.play();
+                });
+            });
+
+            // 关闭弹窗
+            closeBtn.addEventListener('click', function () {
+                modal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.src = '';
+            });
+
+            // 点击弹窗外区域关闭
+            window.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.src = '';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>便民服务 - 三码服务平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .img-container {
+            overflow-x: auto;
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #FF7D00;
+            color: #FF7D00;
+            font-weight: 600;
+        }
+
+        .license-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 16px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        legal: '#165DFF',
+                        integrity: '#36D399',
+                        service: '#FF7D00'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-service">
+                <i class="fa fa-arrow-left text-xl"></i>
+                <span class="font-bold">返回首页</span>
+            </a>
+            <h1 class="text-xl font-bold text-service">便民服务网页</h1>
+            <div class="w-8"></div>
+        </div>
+    </header>
+
+    <nav class="bg-white border-b border-gray-200 sticky top-14 z-40">
+        <div class="container mx-auto px-4 flex overflow-x-auto">
+            <button class="tab-btn tab-active px-4 py-3 whitespace-nowrap focus:outline-none" data-tab="guide">
+                办事指南
+            </button>
+            <button class="tab-btn px-4 py-3 whitespace-nowrap focus:outline-none text-gray-600" data-tab="flow">
+                流程长图
+            </button>
+            <button class="tab-btn px-4 py-3 whitespace-nowrap focus:outline-none text-gray-600" data-tab="download">
+                资料下载
+            </button>
+            <button class="tab-btn px-4 py-3 whitespace-nowrap focus:outline-none text-gray-600" data-tab="team">
+                片区履职专班
+            </button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-6">
+        <div class="tab-content" id="guide">
+            <div class="bg-white rounded-xl p-6 shadow mb-6">
+                <h2 class="text-2xl font-bold text-service mb-4">个人业务办理指南</h2>
+                <div class="space-y-4 text-gray-700">
+                    <p>欢迎使用便民服务平台！以下是烟草专卖零售许可证相关业务的详细办理流程：</p>
+
+                    <h3 class="text-xl font-semibold mt-6">一、线上办理流程（浙里办APP）</h3>
+                    <ol class="list-decimal list-inside space-y-2 pl-4">
+                        <li>登录浙里办APP，搜索“烟草证新办/延续”，进入对应服务入口</li>
+                        <li>完成实名认证（需身份证正反面照片）</li>
+                        <li>填写申请信息，系统自动导入营业执照信息（当日办理的需手动填写）</li>
+                        <li>上传所需证明材料（支持JPG/PNG/PDF）</li>
+                        <li>提交申请后，等待审核（一般1-3个工作日）</li>
+                        <li>审核通过后，在线获取电子凭证或快递送达纸质文件</li>
+                    </ol>
+
+                    <h3 class="text-xl font-semibold mt-6">二、线下办理流程</h3>
+                    <ol class="list-decimal list-inside space-y-2 pl-4">
+                        <li>准备好身份证原件及复印件、工商营业执照原件（超1日的系统自动导入）</li>
+                        <li>前往新昌县行政服务中心3楼J06（烟草窗口）（新昌县江滨西路600号公共服务大楼）</li>
+                        <li>取号排队，向工作人员提交材料</li>
+                        <li>工作人员审核无误后，现场办理并发放凭证</li>
+                    </ol>
+
+                    <!-- 许可证新办（嵌入你的长图） -->
+                    <h3 class="text-xl font-semibold mt-6">三、许可证新办详情</h3>
+                    <div class="space-y-2 pl-4 bg-gray-50 p-4 rounded-lg">
+                        <!-- 嵌入你提供的许可证办理指南长图 -->
+                        <img src="/00.jpg" alt="许可证办理指南" class="license-img" onclick="window.open(this.src, '_blank')">
+
+                        <p class="font-medium">办理地点：</p>
+                        <p>新昌县行政服务中心3楼J06（烟草窗口）<br>（新昌县江滨西路600号公共服务大楼）</p>
+
+                        <p class="font-medium mt-2">联系电话：</p>
+                        <p>0575-86032995</p>
+
+                        <p class="font-medium mt-2">线下申请材料：</p>
+                        <ul class="list-disc list-inside pl-4 space-y-1">
+                            <li>身份证明（若可提供身份证号，不强制提供原件）</li>
+                            <li>工商营业执照原件（当日办理的需拍照片上传；超1日的系统自动导入）</li>
+                            <li>营业房情况照片/视频（不做硬性要求）</li>
+                        </ul>
+
+                        <p class="font-medium mt-2">线上申请步骤（浙里办APP）：</p>
+                        <ol class="list-decimal list-inside pl-4 space-y-2">
+                            <li>搜索“烟草证新办”→点击“在线办理”</li>
+                            <li>填写信息（营业执照信息系统自动导入，当日办理的需手动填写）</li>
+                            <li>注意：许可范围默认选2种，选卷烟会自动包含雪茄烟；需提供有效租赁合同</li>
+                        </ol>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mt-6">四、服务大厅信息</h3>
+                    <p>• 地址：新昌县江滨西路600号公共服务大楼3楼J06（烟草窗口）</p>
+                    <p class="text-gray-500 mt-2">工作时间：周一至周五 9:00-17:00（法定节假日除外）</p>
+                    <p class="text-gray-500">咨询电话：0575-86032995</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 流程长图 -->
+        <div class="tab-content hidden" id="flow">
+            <div class="bg-white rounded-xl p-6 shadow">
+                <h2 class="text-2xl font-bold text-service mb-4 flex items-center">
+                    <i class="fa fa-file-image-o mr-2"></i> 业务办理流程长图
+                </h2>
+                <div class="img-container">
+                    <img src="00..jpg" alt="许可证办理指南" class="max-h-[700px] rounded-lg"
+                        onclick="window.open(this.src, '_blank')">
+                </div>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <a href="javascript:alert('高清图已开始下载！')"
+                        class="bg-service/10 text-service px-4 py-2 rounded-lg hover:bg-service/20 transition-colors">
+                        <i class="fa fa-download mr-1"></i> 下载高清原图
+                    </a>
+                    <a href="javascript:alert('PDF版已开始下载！')"
+                        class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <i class="fa fa-file-pdf-o mr-1"></i> 下载PDF版
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资料下载 -->
+        <!-- 资料下载（改为真实可下载） -->
+        <div class="tab-content hidden" id="download">
+            <div class="bg-white rounded-xl p-6 shadow">
+                <h2 class="text-2xl font-bold text-service mb-4 flex items-center">
+                    <i class="fa fa-download mr-2"></i> 常用资料下载
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- 真实文件下载链接（文件需和网页同目录） -->
+                    <a href="专卖部门权力清单和负面行为清单.docx" download
+                        class="border border-gray-200 rounded-lg p-4 hover:border-service hover:bg-service/5 transition-colors flex items-center">
+                        <i class="fa fa-file-word-o text-service text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">烟草证新办申请表.docx</h3>
+                            <p class="text-gray-500 text-sm">文件大小：2.3MB | 格式：Word</p>
+                        </div>
+                    </a>
+                    <a href="浙江省烟草零售市场主体信用承诺书.pdf" download
+                        class="border border-gray-200 rounded-lg p-4 hover:border-service hover:bg-service/5 transition-colors flex items-center">
+                        <i class="fa fa-file-pdf-o text-red-500 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="font-semibold">证明材料清单.pdf</h3>
+                            <p class="text-gray-500 text-sm">文件大小：1.8MB | 格式：PDF</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 片区履职专班 -->
+        <div class="tab-content hidden" id="team">
+            <div class="bg-white rounded-xl p-6 shadow">
+                <h2 class="text-2xl font-bold text-service mb-4 flex items-center">
+                    <i class="fa fa-users mr-2"></i> 片区履职专班信息
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    片区</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    所队长</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    联系电话</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">城区一片区</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">张XX</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">138XXXX1234</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white mt-8 py-4 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <p>© 2024 三码服务平台 版权所有 | 咨询电话：0575-86032995</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    tabBtns.forEach(b => b.classList.remove('tab-active'));
+                    this.classList.add('tab-active');
+                    tabContents.forEach(c => c.classList.add('hidden'));
+                    document.getElementById(this.getAttribute('data-tab')).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
